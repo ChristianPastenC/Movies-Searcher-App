@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from './components/Nav';
 import Jumbotron from './components/Jumbotron';
 import SoundSection from './components/SoundSection';
+import DisplaySection from './components/DisplaySection';
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
         <Nav />
         <Jumbotron />
         <SoundSection />
+        <DisplaySection />
       </div>
     </React.Fragment>
   )
