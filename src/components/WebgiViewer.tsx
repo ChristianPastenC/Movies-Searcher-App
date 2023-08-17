@@ -17,12 +17,24 @@ import {
     BloomPlugin,
     GammaCorrectionPlugin,
     mobileAndTabletCheck,
+    Vector3,
 } from 'webgi';
-import { gsap } from 'gsap';
+import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { scrollAnimation } from '../lib/scroll-animation';
 
 const WebgiViewer = () => {
+    
+    gsap.registerPlugin(ScrollTrigger);
+
     const canvasRef = useRef(null);
+
+    const memorizedScrollAnimation = useCallback(
+        (position: Vector3, target: Vector3, onUpdate: () => void) => {
+            if (position && target && onUpdate) {
+                scrollAnimation(position, target, onUpdate);
+            }
+        }, []);
 
     const setupViewer = useCallback(async () => {
 
@@ -55,14 +67,20 @@ const WebgiViewer = () => {
 
         window.scrollTo(0, 0);
 
-        let needsUpdated = true;
+        let needsUpdate = true;
+
+        const onUpdate = () => {
+            needsUpdate = true;
+            viewer.setDirty();
+        }
 
         viewer.addEventListener('preFrame', () => {
-            if (needsUpdated) {
+            if (needsUpdate) {
                 camera.positionTargetUpdated(true);
-                needsUpdated = false;
+                needsUpdate = false;
             }
 
+            memorizedScrollAnimation(position, target, onUpdate);
         });
     }, []);
 
