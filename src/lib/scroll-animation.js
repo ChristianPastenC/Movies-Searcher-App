@@ -1,7 +1,6 @@
 import gsap from 'gsap';
-import { Vector3 } from 'webgi';
 
-export const scrollAnimation = (position: Vector3, target: Vector3, onUpdate: () => void) => {
+export const scrollAnimation = (position, target, onUpdate) => {
     const tl = gsap.timeline();
 
     tl.to(position, {
@@ -16,9 +15,7 @@ export const scrollAnimation = (position: Vector3, target: Vector3, onUpdate: ()
             immediateRender: false
         },
         onUpdate,
-        duration: 2,
-    });
-    tl.to(target, {
+    }).to(target, {
         x: 1.52,
         y: 0.77,
         z: -1.08,
@@ -29,10 +26,17 @@ export const scrollAnimation = (position: Vector3, target: Vector3, onUpdate: ()
             scrub: true,
             immediateRender: false
         },
-        duration: 2,
-    })
-    tl.to('.jumbotron-section', {
+    }).to('.jumbotron-section', {
         opacity: 0,
+        scrollTrigger: {
+            trigger: '.sound-section',
+            start: 'top bottom',
+            end: 'top top',
+            scrub: true,
+            immediateRender: false
+        },
+    }).to('.sound-section-content', {
+        opacity: 1,
         scrollTrigger: {
             trigger: '.sound-section',
             start: 'top bottom',

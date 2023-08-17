@@ -85,7 +85,7 @@ body::-webkit-scrollbar-thumb {
   padding: 50px 0 400px 0;
   height: 100vh;
   box-sizing: border-box;
-  /* opacity: 0; */
+  opacity: 0;
   position: relative;
 }
 
@@ -173,7 +173,7 @@ nav .list-styled {
 }
 
 nav .link-styled {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: -0.01em;
   line-height: 1;
@@ -279,7 +279,6 @@ nav .link-styled {
   from {
     opacity: 1;
   }
-
   to {
     opacity: 0;
   }
@@ -342,11 +341,13 @@ nav .link-styled {
 .sound-section .text {
   display: inline-block;
   color: transparent;
-  background-image: linear-gradient(90deg,
-      #1e3791 0%,
-      #2948b1 40%,
-      #3153c6 55%,
-      #385fda 60%);
+  background-image: linear-gradient(
+    90deg,
+    #1e3791 0%,
+    #2948b1 40%,
+    #3153c6 55%,
+    #385fda 60%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   padding-top: 0.5px;
@@ -398,7 +399,6 @@ nav .link-styled {
 }
 
 @media screen and (max-width: 990px) {
-
   .jumbotron-section .iphone-img,
   nav .link-styled {
     display: none;

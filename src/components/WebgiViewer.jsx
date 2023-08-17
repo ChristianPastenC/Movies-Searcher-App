@@ -17,20 +17,19 @@ import {
     BloomPlugin,
     GammaCorrectionPlugin,
     mobileAndTabletCheck,
-    Vector3,
 } from 'webgi';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { scrollAnimation } from '../lib/scroll-animation';
 
 const WebgiViewer = () => {
-    
+
     gsap.registerPlugin(ScrollTrigger);
 
     const canvasRef = useRef(null);
 
     const memorizedScrollAnimation = useCallback(
-        (position: Vector3, target: Vector3, onUpdate: () => void) => {
+        (position, target, onUpdate) => {
             if (position && target && onUpdate) {
                 scrollAnimation(position, target, onUpdate);
             }
@@ -61,7 +60,7 @@ const WebgiViewer = () => {
 
         await manager.addFromPath('scene-black.glb');
 
-        viewer.getPlugin(TonemapPlugin)!.config!.clipBackground = true;
+        viewer.getPlugin(TonemapPlugin).config.clipBackground = true;
 
         viewer.scene.activeCamera.setCameraOptions({ controlsEnabled: false });
 
@@ -89,11 +88,9 @@ const WebgiViewer = () => {
     }, [])
 
     return (
-        <React.Fragment>
-            <div id='webgi-canvas-container'>
-                <canvas id='webgi-canvas' ref={canvasRef} />
-            </div>
-        </React.Fragment>
+        <div id='webgi-canvas-container'>
+            <canvas id='webgi-canvas' ref={canvasRef} />
+        </div>
     );
 }
 export default WebgiViewer;

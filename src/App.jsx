@@ -8,16 +8,14 @@ import WebgiViewer from './components/WebgiViewer';
 function App() {
 
   return (
-    <React.Fragment>
-      <div className='App'>
-        <Nav />
-        <Jumbotron />
-        <SoundSection />
-        <DisplaySection />
-        <WebgiViewer />
-      </div>
-    </React.Fragment>
-  )
+    <div className="App">
+      <Nav />
+      <Jumbotron />
+      <SoundSection />
+      <DisplaySection />
+      <WebgiViewer />
+    </div>
+  );
 }
 
-export default App
+export default App;
