@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 
 export const scrollAnimation = (position, target, onUpdate) => {
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({ });
 
     tl.to(position, {
         x: -3.38,
@@ -12,8 +12,10 @@ export const scrollAnimation = (position, target, onUpdate) => {
             start: 'top bottom',
             end: 'top top',
             scrub: true,
-            immediateRender: false
+            immediateRender: false,
         },
+        duration: 2,
+        delay: 2,
         onUpdate,
     }).to(target, {
         x: 1.52,
@@ -24,8 +26,10 @@ export const scrollAnimation = (position, target, onUpdate) => {
             start: 'top bottom',
             end: 'top top',
             scrub: true,
-            immediateRender: false
+            immediateRender: false,
         },
+        duration: 2,
+        delay: 2,
     }).to('.jumbotron-section', {
         opacity: 0,
         scrollTrigger: {
@@ -33,7 +37,7 @@ export const scrollAnimation = (position, target, onUpdate) => {
             start: 'top bottom',
             end: 'top top',
             scrub: true,
-            immediateRender: false
+            immediateRender: false,
         },
     }).to('.sound-section-content', {
         opacity: 1,
@@ -42,7 +46,39 @@ export const scrollAnimation = (position, target, onUpdate) => {
             start: 'top bottom',
             end: 'top top',
             scrub: true,
-            immediateRender: false
+            immediateRender: false,
+        },
+    }).to(position, {
+        x: 1.56,
+        y: 5.0,
+        z: 0.011,
+        scrollTrigger: {
+            trigger: '.display-section',
+            start: 'top bottom',
+            end: 'top top',
+            scrub: true,
+            immediateRender: false,
+        },
+        onUpdate,
+    }).to(target, {
+        x: -0.55,
+        y: 0.32,
+        z: 0.0,
+        scrollTrigger: {
+            trigger: '.display-section',
+            start: 'top bottom',
+            end: 'top top',
+            scrub: true,
+            immediateRender: false,
+        },
+    }).to('.display-section', {
+        opacity: 1,
+        scrollTrigger: {
+            trigger: '.display-section',
+            start: 'top bottom',
+            end: 'top top',
+            scrub: true,
+            immediateRender: false,
         },
     });
 }
