@@ -1,10 +1,10 @@
 import gsap from 'gsap';
 
-export const scrollAnimation = (position, target, onUpdate) => {
+export const scrollAnimation = (position, target, isMobile, onUpdate) => {
     gsap.to(position, {
-        x: -3.38,
-        y: -10.74,
-        z: -5.93,
+        x: isMobile ? -7.0 : -3.38,
+        y: isMobile ? -12.2 : -10.74,
+        z: isMobile ? -6.0 : -5.93,
         scrollTrigger: {
             trigger: '.sound-section',
             start: 'top bottom',
@@ -16,9 +16,9 @@ export const scrollAnimation = (position, target, onUpdate) => {
         duration: 3
     });
     gsap.to(target, {
-        x: 1.52,
-        y: 0.77,
-        z: -1.08,
+        x: isMobile ? 0.7 : 1.52,
+        y: isMobile ? 1.9 : 0.77,
+        z: isMobile ? 0.7 : -1.08,
         scrollTrigger: {
             trigger: '.sound-section',
             start: 'top bottom',
@@ -49,9 +49,9 @@ export const scrollAnimation = (position, target, onUpdate) => {
         },
     });
     gsap.to(position, {
-        x: 1.56,
-        y: 5.0,
-        z: 0.011,
+        x: isMobile ? 9.36 : 1.56,
+        y: isMobile ? 10.95 : 5.0,
+        z: isMobile ? 0.09 : 0.01,
         scrollTrigger: {
             trigger: '.display-section',
             start: 'top bottom',
@@ -62,9 +62,9 @@ export const scrollAnimation = (position, target, onUpdate) => {
         onUpdate,
     });
     gsap.to(target, {
-        x: -0.55,
-        y: 0.32,
-        z: 0.0,
+        x: isMobile ? -1.62 : -0.55,
+        y: isMobile ? 0.02 : 0.32,
+        z: isMobile ? -0.06 : 0.0,
         scrollTrigger: {
             trigger: '.display-section',
             start: 'top bottom',
