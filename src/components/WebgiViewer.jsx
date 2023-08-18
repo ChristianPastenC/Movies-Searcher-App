@@ -22,11 +22,39 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { scrollAnimation } from '../lib/scroll-animation';
 
-const WebgiViewer = () => {
+gsap.registerPlugin(ScrollTrigger);
 
-    gsap.registerPlugin(ScrollTrigger);
-
+const WebgiViewer = forwardRef((props, ref) => {
     const canvasRef = useRef(null);
+    const [viewerRef, setViewerRef] = useState(null);
+    const [targetRef, setTargetRef] = useState(null);
+    const [cameraRef, setCameraRef] = useState(null);
+    const [positionRef, setPositionRef] = useState(null);
+    const canvasContainerRef = useRef(null);
+    const [previewMode, setPreviewMode] = useState(false);
+
+    useImperativeHandle(ref, () => ({
+        triggerPreview() {
+            setPreviewMode(true);
+            canvasContainerRef.current.style.pointerEvents = 'all';
+            props.contentRef.current.style.opacity = '0';
+
+            const tl = gsap.timeline();
+
+            tl.to(positionRef, {
+                x: 13.04,
+                y: -2.01,
+                z: 2.29,
+                duration: 2,
+                onUpdate: () => {
+                    viewerRef.setDirty();
+                    cameraRef.positionTargetUpdated(true);
+                },
+            }).to(targetRef, { x: 0.11, y: 0.0, z: 0.0, duration: 2, });
+
+            viewerRef.scene.activeCamera.setCameraOptions({ controlsEnabled: true });
+        }
+    }));
 
     const memorizedScrollAnimation = useCallback(
         (position, target, onUpdate) => {
@@ -42,11 +70,17 @@ const WebgiViewer = () => {
             canvas: canvasRef.current || undefined,
         })
 
+        setViewerRef(viewer);
+
         const manager = await viewer.addPlugin(AssetManagerPlugin);
 
         const camera = viewer.scene.activeCamera;
         const position = camera.position;
         const target = camera.target;
+
+        setCameraRef(camera);
+        setPositionRef(position);
+        setTargetRef(target);
 
         await viewer.addPlugin(GBufferPlugin);
         await viewer.addPlugin(new ProgressivePlugin(32));
@@ -87,10 +121,55 @@ const WebgiViewer = () => {
         setupViewer();
     }, [])
 
+    const handleExit = useCallback(() => {
+        setPreviewMode(false);
+        canvasContainerRef.current.style.pointerEvents = 'none';
+        props.contentRef.current.style.opacity = '1';
+        viewerRef.scene.activeCamera.setCameraOptions({ controlsEnabled: false });
+
+        gsap.to(positionRef, {
+            x: 1.56,
+            y: 5.0,
+            z: 0.011,
+            scrollTrigger: {
+                trigger: '.display-section',
+                start: 'top bottom',
+                end: 'top top',
+                scrub: true,
+                 immediateRender: false,
+            },
+            onUpdate: () => {
+                viewerRef.setDirty();
+                cameraRef.positionTargetUpdated(true);
+            },
+        });
+        
+        gsap.to(targetRef, {
+            x: -0.55,
+            y: 0.32,
+            z: 0.0,
+            scrollTrigger: {
+                trigger: '.display-section',
+                start: 'top bottom',
+                end: 'top top',
+                scrub: true,
+                immediateRender: false,
+            },
+        });
+
+    }, [canvasContainerRef, viewerRef, positionRef, cameraRef, targetRef]);
+
     return (
-        <div id='webgi-canvas-container'>
+        <div ref={canvasContainerRef} id='webgi-canvas-container'>
             <canvas id='webgi-canvas' ref={canvasRef} />
+            {
+                previewMode && (
+                    <button className='button' onClick={() => handleExit()}>
+                        Exit
+                    </button>
+                )
+            }
         </div>
     );
-}
+});
 export default WebgiViewer;

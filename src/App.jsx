@@ -6,14 +6,27 @@ import DisplaySection from './components/DisplaySection';
 import WebgiViewer from './components/WebgiViewer';
 
 function App() {
+  const webgiViewerRef = React.useRef();
+  const contentRef = React.useRef();
+
+  const handlePreview = () => {
+    webgiViewerRef.current.triggerPreview();
+  }
 
   return (
-    <div className="App">
-      <Nav />
-      <Jumbotron />
-      <SoundSection />
-      <DisplaySection />
-      <WebgiViewer />
+    <div className='App'>
+      <div ref={contentRef} id='content'>
+        <Nav />
+        <Jumbotron />
+        <SoundSection />
+        <DisplaySection
+          triggerPreview={() => handlePreview()}
+        />
+      </div>
+      <WebgiViewer
+        contentRef={contentRef}
+        ref={webgiViewerRef}
+      />
     </div>
   );
 }

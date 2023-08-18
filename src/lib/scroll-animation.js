@@ -1,9 +1,7 @@
 import gsap from 'gsap';
 
 export const scrollAnimation = (position, target, onUpdate) => {
-    const tl = gsap.timeline({ });
-
-    tl.to(position, {
+    gsap.to(position, {
         x: -3.38,
         y: -10.74,
         z: -5.93,
@@ -14,10 +12,10 @@ export const scrollAnimation = (position, target, onUpdate) => {
             scrub: true,
             immediateRender: false,
         },
-        duration: 2,
-        delay: 2,
         onUpdate,
-    }).to(target, {
+        duration: 3
+    });
+    gsap.to(target, {
         x: 1.52,
         y: 0.77,
         z: -1.08,
@@ -28,9 +26,9 @@ export const scrollAnimation = (position, target, onUpdate) => {
             scrub: true,
             immediateRender: false,
         },
-        duration: 2,
-        delay: 2,
-    }).to('.jumbotron-section', {
+        duration: 3,
+    });
+    gsap.to('.jumbotron-section', {
         opacity: 0,
         scrollTrigger: {
             trigger: '.sound-section',
@@ -39,7 +37,8 @@ export const scrollAnimation = (position, target, onUpdate) => {
             scrub: true,
             immediateRender: false,
         },
-    }).to('.sound-section-content', {
+    });
+    gsap.to('.sound-section-content', {
         opacity: 1,
         scrollTrigger: {
             trigger: '.sound-section',
@@ -48,7 +47,8 @@ export const scrollAnimation = (position, target, onUpdate) => {
             scrub: true,
             immediateRender: false,
         },
-    }).to(position, {
+    });
+    gsap.to(position, {
         x: 1.56,
         y: 5.0,
         z: 0.011,
@@ -60,7 +60,8 @@ export const scrollAnimation = (position, target, onUpdate) => {
             immediateRender: false,
         },
         onUpdate,
-    }).to(target, {
+    });
+    gsap.to(target, {
         x: -0.55,
         y: 0.32,
         z: 0.0,
@@ -71,7 +72,8 @@ export const scrollAnimation = (position, target, onUpdate) => {
             scrub: true,
             immediateRender: false,
         },
-    }).to('.display-section', {
+    });
+    gsap.to('.display-section', {
         opacity: 1,
         scrollTrigger: {
             trigger: '.display-section',
@@ -82,4 +84,3 @@ export const scrollAnimation = (position, target, onUpdate) => {
         },
     });
 }
-
