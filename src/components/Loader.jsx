@@ -1,11 +1,9 @@
-import React from 'react';
-import AnimatedLogo from '../assets/images/logo-animated.gif';
+import React from 'react'
 
 const Loader = () => {
-    return (
-        <div className='loader'>
-            <img className='logo' src={AnimatedLogo} alt='loader' />
-        </div>
-    );
+  return (
+    <div>Loader</div>
+  )
 }
-export default Loader;
+
+export default Loader
