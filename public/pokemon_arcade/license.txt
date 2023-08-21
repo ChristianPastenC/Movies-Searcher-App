@@ -1,0 +1,11 @@
+Model Information:
+* title:	Pokémon Arcade
+* source:	https://sketchfab.com/3d-models/pokemon-arcade-aa302486bda14329976399736703c4ee
+* author:	Selien Labee (https://sketchfab.com/selien)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Pokémon Arcade" (https://sketchfab.com/3d-models/pokemon-arcade-aa302486bda14329976399736703c4ee) by Selien Labee (https://sketchfab.com/selien) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
