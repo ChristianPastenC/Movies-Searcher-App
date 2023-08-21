@@ -1,8 +1,5 @@
 import {
-    mobile,
-    backend,
-    creator,
-    web,
+    gamepad,
     javascript,
     typescript,
     html,
@@ -42,20 +39,20 @@ export const navLinks = [
 
 const services = [
     {
-        title: "Web Developer",
-        icon: web,
+        title: "Moves",
+        icon: gamepad,
     },
     {
-        title: "React Native Developer",
-        icon: mobile,
+        title: "Abilites",
+        icon: gamepad,
     },
     {
-        title: "Backend Developer",
-        icon: backend,
+        title: "Pokémon",
+        icon: gamepad,
     },
     {
-        title: "Content Creator",
-        icon: creator,
+        title: "Types",
+        icon: gamepad,
     },
 ];
 
