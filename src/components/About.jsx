@@ -18,7 +18,7 @@ const ServiceCard = ({ index, title, icon }) => (
           scale: 1,
           speed: 450,
         }}
-        className='bg-primarty bg-violet-gradient rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
+        className='bg-primary bg-violet-gradient rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
       >
         <img
           src={icon}
@@ -52,8 +52,13 @@ const About = () => {
         detailed objects built from thousands of lines of data related
         to Pokémon <a href='https://pokeapi.co'> (https://pokeapi.co)</a>.
         <br />
-        Some information stored is:
       </motion.p>
+      <motion.h3
+        variants={fadeIn('', '', 0.1, 1)}
+        className='mt-4 text-[17px] max-w-3xl leading-[30px]'
+      >
+        Some information stored is:
+      </motion.h3>
 
       <div className='mt-20 flex flex-wrap gap-10'>
         {services.map((service, index) => (
