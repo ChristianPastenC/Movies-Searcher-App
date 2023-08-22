@@ -25,7 +25,7 @@ const Navbar = () => {
             className='w-9 h-9 object-contain'
           />
           <p className='text-white text-[18px] font-bold cursor-pointer'>
-            <span className='sm:block hidden'>Pokédex 3D Starter App</span>
+            <span className='sm:block hidden'>Movies Searcher App</span>
           </p>
         </Link>
         <ul className='list-none hidden sm:flex flex-row gap-10'>

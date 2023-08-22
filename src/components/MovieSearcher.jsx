@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMovies } from '../hooks/useMovies';
-import Movies from './Movies';
+import { Movies } from './Movies';
 import { SectionWrapper } from '../hoc';
 import { useState, useCallback } from 'react'
 import { motion } from 'framer-motion';

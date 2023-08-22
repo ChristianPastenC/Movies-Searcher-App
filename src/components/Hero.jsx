@@ -18,7 +18,7 @@ const Hero = () => {
             Hello <span className='text-[#4d56af]'>World,</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            It's a React 3D Starter App
+            It's a React Movie Searcher App
           </p>
         </div>
       </div>
