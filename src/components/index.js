@@ -3,14 +3,14 @@ import Hero from './Hero';
 import Navbar from './Navbar';
 import About from './About';
 import MovieSearcher from './MovieSearcher';
-import Contact from './Contact';
+import Footer from './Footer';
 
 export {
   Hero,
   Navbar,
   About,
   MovieSearcher,
-  Contact,
+  Footer,
   DuckCanvas, 
   BucketCanvas, 
   StarsCanvas
