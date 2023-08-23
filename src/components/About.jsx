@@ -1,5 +1,5 @@
 import React from 'react';
-import Tilt from 'react-tilt';
+import { Tilt } from 'react-tilt';
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
 import { tech } from '../constants';
@@ -46,12 +46,12 @@ const About = () => {
         variants={fadeIn('', '', 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
-        This project is an interactive application built with ReactJS, 
-        Framer Motion, Three.js, and Tailwind CSS, designed to provide 
-        detailed information about movies using the public RESTful OMDB API. 
-        The app offers a visually appealing and seamless experience through 
-        smooth animations implemented with Framer Motion, while Three.js 
-        elements could add 3D effects. The responsive design is achieved 
+        This project is an interactive application built with ReactJS,
+        Framer Motion, Three.js, and Tailwind CSS, designed to provide
+        detailed information about movies using the public RESTful OMDB API.
+        The app offers a visually appealing and seamless experience through
+        smooth animations implemented with Framer Motion, while Three.js
+        elements could add 3D effects. The responsive design is achieved
         using Tailwind CSS, allowing for a polished presentation.
         <br />
       </motion.p>
