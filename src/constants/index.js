@@ -7,16 +7,16 @@ import {
 
 const navLinks = [
     {
+        id: "home",
+        title: "Home",
+    },
+    {
         id: "about",
         title: "About",
     },
     {
-        id: "section",
-        title: "Section",
-    },
-    {
-        id: "contact",
-        title: "Contact",
+        id: "searcher",
+        title: "Searcher",
     },
 ];
 

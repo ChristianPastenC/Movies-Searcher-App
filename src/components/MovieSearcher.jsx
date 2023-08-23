@@ -94,4 +94,4 @@ const MovieSearcher = () => {
         </div>
     );
 }
-export default SectionWrapper(MovieSearcher, 'Searcher');
+export default SectionWrapper(MovieSearcher, 'searcher');
