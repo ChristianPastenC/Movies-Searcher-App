@@ -1,4 +1,4 @@
-import { DuckCanvas, BucketCanvas, StarsCanvas } from './canvas';
+import { DogCanvas, BucketCanvas, StarsCanvas } from './canvas';
 import Hero from './Hero';
 import Navbar from './Navbar';
 import About from './About';
@@ -11,7 +11,7 @@ export {
   About,
   MovieSearcher,
   Footer,
-  DuckCanvas, 
+  DogCanvas, 
   BucketCanvas, 
   StarsCanvas
 }

@@ -18,7 +18,7 @@ const FeatureCard = ({ index, title, icon }) => (
           scale: 1,
           speed: 450,
         }}
-        className='bg-primary bg-violet-gradient rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
+        className='bg-primary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
       >
         <img
           src={icon}
@@ -62,7 +62,7 @@ const About = () => {
         Some tech features are:
       </motion.h3>
 
-      <div className='mt-20 flex flex-wrap gap-10'>
+      <div className='mt-20 flex flex-wrap gap-10 justify-center'>
         {tech.map((service, index) => (
           <FeatureCard key={service.title} index={index} {...service} />
         ))}

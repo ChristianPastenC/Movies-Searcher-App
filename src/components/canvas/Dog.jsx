@@ -4,8 +4,8 @@ import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
 
 import CanvasLoader from '../Loader';
 
-const Duck = ({ isMobile }) => {
-  const computer = useGLTF('./psybberduck/scene.gltf');
+const Dog = ({ isMobile }) => {
+  const shiba = useGLTF('./shiba/scene.gltf');
 
   return (
     <mesh>
@@ -20,16 +20,16 @@ const Duck = ({ isMobile }) => {
         shadow-mapSize={1024}
       />
       <primitive
-        object={computer.scene}
-        scale={isMobile ? 18 : 21}
-        position={isMobile ? [0, -3, 0.25] : [0, -3.2, -0.5]}
-        rotation={[0, 0.95, 0]}
+        object={shiba.scene}
+        scale={isMobile ? 3 : 3.5}
+        position={isMobile ? [0, 0.5, 0.25] : [0, 0.25, -0.5]}
+        rotation={[0, 1, 0]}
       />
     </mesh>
   );
 };
 
-const DuckCanvas = () => {
+const DogCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const DuckCanvas = () => {
           enableZoom={false}
           maxPolarAngle={90}
         />
-        <Duck isMobile={isMobile} />
+        <Dog isMobile={isMobile} />
       </Suspense>
 
       <Preload all />
@@ -69,4 +69,4 @@ const DuckCanvas = () => {
   );
 };
 
-export default DuckCanvas;
+export default DogCanvas;

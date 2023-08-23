@@ -1,5 +1,5 @@
 import BucketCanvas from './Bucket';
-import DuckCanvas from './Duck';
+import DogCanvas from './Dog';
 import StarsCanvas from './Stars';
 
-export { BucketCanvas, DuckCanvas, StarsCanvas };
+export { BucketCanvas, DogCanvas, StarsCanvas };

@@ -12,20 +12,20 @@ const MovieCard = ({ movie }) => {
           scale: 1,
           speed: 450,
         }}
-        className='bg-primary shadow-card p-5 rounded-2xl sm:w-[360px] w-full'
+        className='bg-primary shadow-card p-5 rounded-2xl sm:w-80 w-80'
       >
         <div className='relative w-full h-[230px]'>
           <img
             src={movie.image}
             alt='movie_poster'
-            className='w-full h-full object-cover rounded-2xl'
+            className='w-72 h-full object-cover rounded-2xl'
           />
         </div>
         <div className='mt-5'>
-          <h3 className='text-white font-bold text-[24px]'>
+          <h3 className='text-white font-bold text-base truncate'>
             {movie.title}
           </h3>
-          <p className='mt-2 text-secondary text-[14px]'>
+          <p className='mt-2 text-secondary text-sm'>
             {movie.year}
           </p>
         </div>
@@ -36,7 +36,7 @@ const MovieCard = ({ movie }) => {
 
 const ListOfMovies = ({ movies }) => {
   return (
-    <div className='mt-20 flex flex-wrap gap-7'>
+    <div className='mt-20 flex flex-wrap gap-7 justify-center'>
       {movies.map((movie) => (
         <MovieCard movie={movie} />
       ))}

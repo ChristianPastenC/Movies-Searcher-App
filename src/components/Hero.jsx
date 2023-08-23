@@ -1,5 +1,5 @@
 import React from 'react';
-import { DuckCanvas } from './canvas';
+import { DogCanvas } from './canvas';
 import { motion } from 'framer-motion';
 import { SectionWrapper } from '../hoc';
 import { styles } from '../styles';
@@ -24,7 +24,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <DuckCanvas />
+      <DogCanvas />
 
       <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
         <a href='#home'>
