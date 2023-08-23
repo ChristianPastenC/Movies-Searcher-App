@@ -1,10 +1,10 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
-
 import CanvasLoader from '../Loader';
+import { useIsMobile } from '../../hooks/useIsMobile';
 
-const Bucket = () => {
+const Bucket = ({ isMobile }) => {
   const bucket = useGLTF('./popcorn_bucket/scene.gltf');
 
   return (
@@ -13,7 +13,7 @@ const Bucket = () => {
       <pointLight intensity={1} />
       <primitive
         object={bucket.scene}
-        scale={6}
+        scale={isMobile ? 8 : 10}
         position={[-1, -1.5, 0]}
         rotation={[0, 0, 0.15]}
       />
@@ -22,6 +22,8 @@ const Bucket = () => {
 };
 
 const BucketCanvas = () => {
+  const { isMobile } = useIsMobile();
+
   return (
     <Canvas
       shadows
@@ -43,7 +45,7 @@ const BucketCanvas = () => {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <Bucket />
+        <Bucket isMobile={isMobile} />
         <Preload all />
       </Suspense>
     </Canvas>

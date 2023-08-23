@@ -1,8 +1,8 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
-
 import CanvasLoader from '../Loader';
+import { useIsMobile } from '../../hooks/useIsMobile';
 
 const Dog = ({ isMobile }) => {
   const shiba = useGLTF('./shiba/scene.gltf');
@@ -21,7 +21,7 @@ const Dog = ({ isMobile }) => {
       />
       <primitive
         object={shiba.scene}
-        scale={isMobile ? 3 : 3.5}
+        scale={isMobile ? 2.5 : 3.5}
         position={isMobile ? [0, 0.5, 0.25] : [0, 0.25, -0.5]}
         rotation={[0, 1, 0]}
       />
@@ -30,23 +30,7 @@ const Dog = ({ isMobile }) => {
 };
 
 const DogCanvas = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 500px)');
-
-    setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQuery.addEventListener('change', handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener('change', handleMediaQueryChange);
-    };
-  }, []);
+  const { isMobile } = useIsMobile();
 
   return (
     <Canvas
