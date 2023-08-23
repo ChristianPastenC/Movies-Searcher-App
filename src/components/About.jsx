@@ -2,11 +2,11 @@ import React from 'react';
 import Tilt from 'react-tilt';
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
-import { services } from '../constants';
+import { tech } from '../constants';
 import { SectionWrapper } from '../hoc';
 import { fadeIn, textVariant } from '../utils/motion';
 
-const ServiceCard = ({ index, title, icon }) => (
+const FeatureCard = ({ index, title, icon }) => (
   <Tilt className='xs:w-[250px] w-full'>
     <motion.div
       variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
@@ -23,7 +23,7 @@ const ServiceCard = ({ index, title, icon }) => (
         <img
           src={icon}
           alt='web-development'
-          className='w-16 h-16 object-contain'
+          className={`${icon === '/src/assets/threejs.svg' && 'bg-white rounded-full p-1'} w-16 h-16 object-contain`}
         />
 
         <h3 className='text-white text-[20px] font-bold text-center'>
@@ -46,23 +46,25 @@ const About = () => {
         variants={fadeIn('', '', 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
-        This is an starter 3D React App that uses Three JS, framer motion,
-        tailwindcss... <br />
-        Consumes a Restful Application Programming Interface to highly
-        detailed objects built from thousands of lines of data related
-        to Pokémon <a href='https://pokeapi.co'> (https://pokeapi.co)</a>.
+        This project is an interactive application built with ReactJS, 
+        Framer Motion, Three.js, and Tailwind CSS, designed to provide 
+        detailed information about movies using the public RESTful OMDB API. 
+        The app offers a visually appealing and seamless experience through 
+        smooth animations implemented with Framer Motion, while Three.js 
+        elements could add 3D effects. The responsive design is achieved 
+        using Tailwind CSS, allowing for a polished presentation.
         <br />
       </motion.p>
       <motion.h3
         variants={fadeIn('', '', 0.1, 1)}
         className='mt-4 text-[17px] max-w-3xl leading-[30px]'
       >
-        Some information stored is:
+        Some tech features are:
       </motion.h3>
 
       <div className='mt-20 flex flex-wrap gap-10'>
-        {services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} {...service} />
+        {tech.map((service, index) => (
+          <FeatureCard key={service.title} index={index} {...service} />
         ))}
       </div>
     </>

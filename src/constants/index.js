@@ -1,5 +1,8 @@
 import {
-    gamepad,
+    react,
+    tailwind, 
+    threejs,
+    logo
 } from "../assets";
 
 const navLinks = [
@@ -17,23 +20,23 @@ const navLinks = [
     },
 ];
 
-const services = [
+const tech = [
     {
-        title: "Moves",
-        icon: gamepad,
+        title: "React JS",
+        icon: react,
     },
     {
-        title: "Abilites",
-        icon: gamepad,
+        title: "Three JS",
+        icon: threejs,
     },
     {
-        title: "Pokémon",
-        icon: gamepad,
+        title: "TailwindCSS",
+        icon: tailwind,
     },
     {
-        title: "Types",
-        icon: gamepad,
+        title: "OMDb API",
+        icon: logo,
     },
 ];
 
-export { services, navLinks };
+export { tech, navLinks };
