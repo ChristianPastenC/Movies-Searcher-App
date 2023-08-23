@@ -4,8 +4,8 @@ import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
 
 import CanvasLoader from '../Loader';
 
-const Computers = ({ isMobile }) => {
-  const computer = useGLTF('./gameboy_pokemon/scene.gltf');
+const Duck = ({ isMobile }) => {
+  const computer = useGLTF('./psybberduck/scene.gltf');
 
   return (
     <mesh>
@@ -21,19 +21,19 @@ const Computers = ({ isMobile }) => {
       />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.25 : 0.35}
-        position={isMobile ? [-1.8, -2.5, -0.5] : [-2.5, -4.25, -0.5]}
-        rotation={[0, 0.75, 0]}
+        scale={isMobile ? 18 : 21}
+        position={isMobile ? [0, -3, 0.25] : [0, -3.2, -0.5]}
+        rotation={[0, 0.95, 0]}
       />
     </mesh>
   );
 };
 
-const ComputersCanvas = () => {
+const DuckCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
+    const mediaQuery = window.matchMedia('(max-width: 500px)');
 
     setIsMobile(mediaQuery.matches);
 
@@ -41,10 +41,10 @@ const ComputersCanvas = () => {
       setIsMobile(event.matches);
     };
 
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
 
     return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+      mediaQuery.removeEventListener('change', handleMediaQueryChange);
     };
   }, []);
 
@@ -59,10 +59,9 @@ const ComputersCanvas = () => {
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           enableZoom={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
+          maxPolarAngle={90}
         />
-        <Computers isMobile={isMobile} />
+        <Duck isMobile={isMobile} />
       </Suspense>
 
       <Preload all />
@@ -70,4 +69,4 @@ const ComputersCanvas = () => {
   );
 };
 
-export default ComputersCanvas;
+export default DuckCanvas;

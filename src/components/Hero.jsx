@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComputersCanvas } from './canvas';
+import { DuckCanvas } from './canvas';
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
 
@@ -18,12 +18,12 @@ const Hero = () => {
             Hello <span className='text-[#4d56af]'>World,</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            It's a React Movie Searcher App
+            It's a React Movies Searcher App
           </p>
         </div>
       </div>
 
-      <ComputersCanvas />
+      <DuckCanvas />
 
       <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
         <a href='#about'>
